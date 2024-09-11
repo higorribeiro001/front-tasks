@@ -1,0 +1,29 @@
+<div class="flex flex-col min-h-screen">
+  <app-navbar></app-navbar>
+
+  <main class="flex-grow bg-[#ebf1f1] justify-center">
+    <div class="w-full flex flex-wrap justify-center mt-8 gap-6">
+      <div class="flex flex-row justify-between rounded border border-gray-900 bg-transparent w-80 pl-2">
+        <input type="text" class="border-none bg-transparent focus:outline-none" style="width: 90%;"
+          (input)="filterPersons($event)">
+        <button class="flex justify-center items-center p-2 bg-transparent">
+          <img src="search.png" alt="pesquisar" style="width: 25px;">
+        </button>
+      </div>
+      <a class="bg-[#0985d6] p-2 rounded text-white font-bold" href="/cadastro">
+        + Cadastrar
+      </a>
+    </div>
+    <div class="flex flex-wrap justify-center p-10 gap-3">
+      @for (item of list(); track item) {
+      <app-card [id]="item.id" [name]="item.name" [date_birth]="formatDate(item.date_birth)" [cpf]="item.cpf"
+        [sex]="formatSex(item.sex)" [height]="item.height" [weight]="item.weight">
+      </app-card>
+      } @empty {
+      <p>Não há pessoas cadastradas</p>
+      }
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

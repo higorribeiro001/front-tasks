@@ -1,0 +1,21 @@
+<div class="flex flex-col items-start">
+  <label>{{ label }}</label>
+  @if(type !== "select" && error === '') {
+  <input type="{{ type }}"
+    class="px-3 py-2 border border-gray-900 focus:outline-none focus:border-blue-400 rounded mt-2 w-full"
+    (input)="onInputChange($event)" [value]="value">
+  } @else if (error !== '' && type !== "select") {
+  <input type="{{ type }}"
+    class="px-3 py-2 border border-red-500 focus:outline-none focus:border-red-500 rounded mt-2 w-full"
+    (input)="onInputChange($event)" [value]="value">
+  } @else {
+  <select class="px-3 py-3 border border-gray-900 focus:outline-none focus:border-blue-400 bg-white rounded mt-2 w-full"
+    (change)="onInputChange($event)" [value]="value">
+    <option value="F">Feminino</option>
+    <option value="M">Masculino</option>
+  </select>
+  }
+  <span class="text-red-500">
+    {{ error }}
+  </span>
+</div>

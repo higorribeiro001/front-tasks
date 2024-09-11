@@ -1,0 +1,23 @@
+<div class="flex flex-col min-h-screen">
+  <app-navbar></app-navbar>
+
+  <main class="flex bg-[#ebf1f1] justify-center items-center">
+    <div class="w-full flex justify-center my-8">
+      <div class="flex flex-col justify-content py-10 px-6 w-80 shadow rounded bg-white gap-3">
+        <h2 class="font-bold text-[20px] text-[#0985d6] text-center overflow-hidden text-ellipsis whitespace-nowrap">
+          {{ title() }}
+        </h2>
+        @for(item of inputs(); track item) {
+        <app-input [label]="item.label" [type]="item.type" [error]="item.error" [value]="item.value"
+          (inputValueChange)="item.type === 'text' || item.type === 'select' ? updateTextValue($event, item.label) : (item.type === 'date' ? updateDateValue($event, item.label) : updateNumberValue($event, item.label))">
+        </app-input>
+        }
+        <button class="bg-[#0985d6] p-2 rounded mt-8 text-white font-bold" (click)="submitRegister($event)">
+          {{ nameButton() }}
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

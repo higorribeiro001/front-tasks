@@ -1,0 +1,24 @@
+<div class="p-6 m-2 shadow rounded bg-white w-80 transition-transform transform hover:scale-105">
+  <h2 class="font-bold text-[18px] text-[#0985d6] overflow-hidden text-ellipsis whitespace-nowrap">
+    {{ name }}
+  </h2>
+  <p>Data de Nascimento: {{ date_birth }}</p>
+  <p>CPF: {{ cpf }}</p>
+  <p>Sexo: {{ sex }}</p>
+  <p>Altura: {{ height.toFixed(2) }}</p>
+  <p>Peso: {{ weight.toFixed(2) }} Kg</p>
+  <div class="flex flex-row gap-12 w-full mt-3 justify-center">
+    <button class="flex justify-center items-center p-2 bg-yellow-300 rounded-lg hover:bg-yellow-500" title="Editar"
+      (click)="edit()">
+      <img src="edit.png" alt="editar" style="width: 25px;">
+    </button>
+    <button class="flex justify-center items-center p-2 bg-red-500 rounded-lg hover:bg-red-700" title="Remover"
+      (click)="deletePerson(id)">
+      <img src="remove.png" alt="remover" style="width: 25px;">
+    </button>
+    <button class="flex justify-center items-center p-2 bg-blue-500 rounded-lg hover:bg-blue-700" title="Peso ideal"
+      (click)="getIdealWeight(id)">
+      <img src="balance.png" alt="balança" style="width: 25px;">
+    </button>
+  </div>
+</div>
